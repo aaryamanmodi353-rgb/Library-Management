@@ -1,0 +1,95 @@
+@model IEnumerable<LibraryManagement.Models.Publication>
+@{
+    string currentType = ViewData["CurrentType"]?.ToString() ?? "Newspaper";
+    ViewData["Title"] = currentType + " Management";
+    int pageNumber = (int)(ViewData["PageNumber"] ?? 1);
+    int totalPages = (int)(ViewData["TotalPages"] ?? 1);
+}
+
+<!-- Top Action Bar -->
+<div class="d-flex justify-content-between align-items-center my-4 pb-2 border-bottom">
+    <h2>@currentType Collection</h2>
+    <div class="d-flex gap-3 align-items-center">
+        <form asp-action="Index" method="get" class="form-inline d-flex gap-2">
+            <input type="hidden" name="type" value="@currentType" />
+            <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Search by title..." />
+            <button type="submit" class="btn btn-outline-secondary">Search</button>
+        </form>
+        <a asp-action="Create" asp-route-type="@currentType" class="btn btn-primary">Add New @currentType</a>
+    </div>
+</div>
+
+<!-- Horizontal Sections with Images -->
+<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 hover-card">
+                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                {
+                    <img src="@item.ImageUrl" class="card-img-top p-3 rounded" alt="@item.Title" style="height: 250px; object-fit: cover;">
+                }
+                else
+                {
+                    <!-- Fallback placeholder -->
+                    <div class="bg-secondary text-white d-flex align-items-center justify-content-center p-3 rounded-top" style="height: 250px;">
+                        <span class="display-1">📰</span>
+                    </div>
+                }
+                
+                <div class="card-body d-flex flex-column text-center">
+                    <h5 class="card-title fw-bold text-truncate" title="@item.Title">@item.Title</h5>
+                    <p class="card-text text-muted mb-2">@item.Publisher</p>
+                    <p class="card-text mb-3"><small class="text-secondary">@item.PublishedDate.ToString("MMM dd, yyyy")</small></p>
+                    
+                    <div class="mt-auto">
+                        <div class="mb-3">
+                            <span class="badge @(item.IsAvailable ? "bg-success" : "bg-danger") px-3 py-2 w-100">
+                                @(item.IsAvailable ? "Available" : "Checked Out")
+                            </span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning w-50">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger w-50">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (!Model.Any())
+{
+    <div class="text-center py-5 text-muted">
+        <h4>No @(currentType)s found matching your criteria.</h4>
+    </div>
+}
+
+<!-- Pagination -->
+@if (totalPages > 1)
+{
+    <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+            @for (int i = 1; i <= totalPages; i++)
+            {
+                <li class="page-item @(i == pageNumber ? "active" : "")">
+                    <a class="page-item page-link" asp-action="Index"
+                       asp-route-type="@currentType"
+                       asp-route-searchString="@ViewData["CurrentFilter"]"
+                       asp-route-pageNumber="@i">@i</a>
+                </li>
+            }
+        </ul>
+    </nav>
+}
+
+<style>
+    .hover-card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    }
+</style>

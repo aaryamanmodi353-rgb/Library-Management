@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Book Already Returned";
+}
+
+<div class="container mt-5">
+    <div class="alert alert-info">
+        <h4 class="alert-heading">Notice</h4>
+        <p>@TempData["ErrorMessage"]</p>
+        <hr>
+        <p class="mb-0">This book has already been returned. No further action is required.</p>
+    </div>
+    <a asp-action="Index" asp-controller="Borrow" class="btn btn-primary mt-3">Back to Borrowings</a>
+</div>

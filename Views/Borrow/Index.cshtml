@@ -1,0 +1,56 @@
+@model IEnumerable<LibraryManagement.Models.BorrowRecord>
+@{
+    ViewData["Title"] = "Borrowings List";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Book Title</th>
+            <th>Borrower Name</th>
+            <th>Email</th>
+            <th>Borrow Date</th>
+            <th>Return Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model)
+        {
+            <tr>
+                <td>@record.Book?.Title</td>
+                <td>@record.BorrowerName</td>
+                <td>@record.BorrowerEmail</td>
+                <td>@record.BorrowDate.ToString("yyyy-MM-dd")</td>
+                <td>@(record.ReturnDate?.ToString("yyyy-MM-dd") ?? "-")</td>
+                <td>
+                    @if (record.ReturnDate == null)
+                    {
+                        <span class="badge bg-warning text-dark">Borrowed</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success">Returned</span>
+                    }
+                </td>
+                <td>
+                    @if (record.ReturnDate == null)
+                    {
+                        <a asp-action="Return" asp-route-borrowRecordId="@record.BorrowRecordId" class="btn btn-success btn-sm">Process Return</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

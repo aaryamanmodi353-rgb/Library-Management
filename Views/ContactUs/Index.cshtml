@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<style>
+ .content-container {
+ background: #fff;
+ border-radius: 4px;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+ padding: 40px;
+ margin-top: 30px;
+ margin-bottom: 50px;
+ }
+ .btn-submit {
+ background-color: #0d6efd;
+ color: white;
+ border: none;
+ font-weight: 500;
+ }
+ .btn-submit:hover {
+ background-color: #0b5ed7;
+ }
+</style>
+
+<!-- Main Content Section -->
+<div class="content-container">
+    <div class="row">
+        <!-- Form Column -->
+        <div class="col-md-7 pe-md-5">
+            <h2 class="mb-4 fw-bold text-dark">Contact Us</h2>
+            <form action="#" method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label text-secondary small fw-bold">Full Name</label>
+                    <input type="text" class="form-control form-control-sm rounded-1" id="name" required placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label text-secondary small fw-bold">Email Address</label>
+                    <input type="email" class="form-control form-control-sm rounded-1" id="email" required placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label text-secondary small fw-bold">Your Message</label>
+                    <textarea class="form-control form-control-sm rounded-1" id="message" rows="4" required placeholder="Type your message here..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-sm btn-submit px-4 rounded-1">Submit Ticket</button>
+            </form>
+        </div>
+        <!-- Info Column -->
+        <div class="col-md-5 mt-5 mt-md-0 border-start ps-md-4">
+            <h4 class="fw-bold mb-3">Support Desk</h4>
+            <p class="text-muted small">Have issues with broken links, missing inventory, or user accounts? Drop a message and our support admin panel team will reach out within 24 hours.</p>
+            <hr class="my-4 text-muted">
+            <h6 class="fw-bold mb-1">Email</h6>
+            <p class="text-muted small mb-3">support@librarymanagement.com</p>
+            <h6 class="fw-bold mb-1">Hours</h6>
+            <p class="text-muted small">Mon - Fri: 9:00 AM - 6:00 PM</p>
+        </div>
+    </div>
+</div>

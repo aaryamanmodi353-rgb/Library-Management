@@ -1,0 +1,148 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!-- Hero Section -->
+<div class="p-5 mb-4 bg-light rounded-3 text-center shadow-sm" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <div class="container-fluid py-5">
+        <h1 class="display-4 fw-bold text-primary mb-3">Welcome to Central Library</h1>
+        <p class="col-md-8 mx-auto fs-4 text-muted">
+            Discover a world of knowledge with our extensive collection of books, magazines, and newspapers. Manage your reading journey efficiently.
+        </p>
+        <div class="mt-4 gap-3 d-flex justify-content-center">
+            <a href="/Books" class="btn btn-primary btn-lg px-4 gap-3">Browse Books</a>
+            <a href="/Student" class="btn btn-outline-secondary btn-lg px-4">Student Portal</a>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Books Section -->
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold text-dark border-bottom pb-2 border-primary" style="display: inline-block;">Featured Books</h3>
+        <a href="/Books" class="text-decoration-none fw-bold">View All ➔</a>
+    </div>
+
+    <div class="row g-4">
+        <!-- Book 1 -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100 border-0 hover-card">
+                <img src="~/images/hobbit.jpeg" class="card-img-top p-3 rounded" alt="The Hobbit" style="height: 250px; object-fit: cover;">
+                <div class="card-body d-flex flex-column text-center">
+                    <h5 class="card-title fw-bold text-truncate" title="The Hobbit">The Hobbit</h5>
+                    <p class="card-text text-muted mb-3">J.R.R. Tolkien</p>
+                    <div class="mt-auto">
+                        <span class="badge bg-success mb-2 px-3 py-2">Available</span>
+                        <a href="/Books" class="btn btn-outline-primary btn-sm w-100">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Book 2 -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100 border-0 hover-card">
+                <img src="~/images/warpeace.jpeg" class="card-img-top p-3 rounded" alt="War and Peace" style="height: 250px; object-fit: cover;">
+                <div class="card-body d-flex flex-column text-center">
+                    <h5 class="card-title fw-bold text-truncate" title="War and Peace">War and Peace</h5>
+                    <p class="card-text text-muted mb-3">Leo Tolstoy</p>
+                    <div class="mt-auto">
+                        <span class="badge bg-danger mb-2 px-3 py-2">Borrowed</span>
+                        <a href="/Books" class="btn btn-outline-primary btn-sm w-100">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Book 3 -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100 border-0 hover-card">
+                <img src="~/images/purple.png" class="card-img-top p-3 rounded" alt="The Color Purple" style="height: 250px; object-fit: cover;">
+                <div class="card-body d-flex flex-column text-center">
+                    <h5 class="card-title fw-bold text-truncate" title="The Color Purple">The Color Purple</h5>
+                    <p class="card-text text-muted mb-3">Alice Walker</p>
+                    <div class="mt-auto">
+                        <span class="badge bg-success mb-2 px-3 py-2">Available</span>
+                        <a href="/Books" class="btn btn-outline-primary btn-sm w-100">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats Card -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100 border-0 bg-primary text-white">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center p-4">
+                    <h4 class="fw-bold mb-4">Library Stats</h4>
+                    
+                    <div class="mb-3 w-100 bg-white bg-opacity-25 rounded p-2">
+                        <h2 class="mb-0 fw-bold">12K+</h2>
+                        <small>Total Books</small>
+                    </div>
+                    
+                    <div class="mb-3 w-100 bg-white bg-opacity-25 rounded p-2">
+                        <h2 class="mb-0 fw-bold">850</h2>
+                        <small>Active Members</small>
+                    </div>
+
+                    <div class="w-100 bg-white bg-opacity-25 rounded p-2">
+                        <h2 class="mb-0 fw-bold">124</h2>
+                        <small>New Arrivals</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Links & Announcements -->
+<div class="container mt-5 mb-5">
+    <div class="row g-4">
+        <!-- Announcements -->
+        <div class="col-md-8">
+            <h4 class="fw-bold mb-3"><span class="text-warning">🔔</span> Library Announcements</h4>
+            <div class="list-group shadow-sm">
+                <div class="list-group-item list-group-item-action p-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">New Newspaper Collection Added</h5>
+                        <small class="text-muted">3 days ago</small>
+                    </div>
+                    <p class="mb-1">We have expanded our daily publications. Check out the new international newspapers section!</p>
+                </div>
+                <div class="list-group-item list-group-item-action p-3">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1 fw-bold">System Maintenance Scheduled</h5>
+                        <small class="text-muted">5 days ago</small>
+                    </div>
+                    <p class="mb-1">The library portal will be down for maintenance this Sunday from 2 AM to 4 AM.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Action Cards -->
+        <div class="col-md-4">
+             <h4 class="fw-bold mb-3">Quick Actions</h4>
+             <div class="d-flex flex-column gap-3">
+                 <a href="/Librarian" class="btn btn-outline-dark p-3 text-start fw-bold d-flex justify-content-between align-items-center shadow-sm">
+                     Manage Staff <span>➔</span>
+                 </a>
+                 <a href="/Publications?type=Magazine" class="btn btn-outline-dark p-3 text-start fw-bold d-flex justify-content-between align-items-center shadow-sm">
+                     Browse Magazines <span>➔</span>
+                 </a>
+                 <a href="/Borrow" class="btn btn-outline-dark p-3 text-start fw-bold d-flex justify-content-between align-items-center shadow-sm">
+                     Track Borrowings <span>➔</span>
+                 </a>
+             </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover-card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    }
+</style>

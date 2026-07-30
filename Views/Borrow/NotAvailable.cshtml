@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Book Not Available";
+}
+
+<div class="container mt-5">
+    <div class="alert alert-warning">
+        <h4 class="alert-heading">Not Available</h4>
+        <p>@TempData["ErrorMessage"]</p>
+        <hr>
+        <p class="mb-0">The book you are trying to borrow is currently checked out by someone else.</p>
+    </div>
+    <a asp-action="Index" asp-controller="Books" class="btn btn-primary mt-3">Back to Books</a>
+</div>
