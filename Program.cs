@@ -18,12 +18,14 @@ builder.Services.AddDbContext<LibraryContext>(
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
+// ALWAYS show detailed errors so we can debug on Render
+app.UseDeveloperExceptionPage();
+
+// if (!app.Environment.IsDevelopment())
+// {
+//     app.UseExceptionHandler("/Home/Error");
+//     app.UseHsts();
+// }
 
 app.UseHttpsRedirection();
 app.UseRouting();
