@@ -19,4 +19,5 @@ RUN dotnet publish "./LibraryManagement.csproj" -c $BUILD_CONFIGURATION -o /app/
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+USER root
 ENTRYPOINT ["dotnet", "LibraryManagement.dll"]
